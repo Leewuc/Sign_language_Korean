@@ -21,11 +21,13 @@ Welcome to a lightweight prototype for recognizing Korean sign language. This re
 - **`action_features_extraction.py`** – captures webcam frames, extracts landmarks and stores them as NumPy arrays
 - **`Data_Preprocessing.py`** – loads the saved sequences and splits them for training/testing
 - **`LSTM_Model.py`** – defines and trains the LSTM network
+
 - **`app/`** – contains the real-time demo code
   - **`realtime.py`** – main loop for webcam inference
 - **`utils/`** – shared helper modules for MediaPipe processing
 - **`realtime_testing.py`** – thin wrapper calling `app.realtime.run`
 - **`api_chat.py`** – helper functions for OpenAI calls and text-to-speech
+
 
 A small pre-trained model `lstm_model_fin3.h5` is provided for quick experimentation.
 
@@ -41,6 +43,7 @@ A small pre-trained model `lstm_model_fin3.h5` is provided for quick experimenta
 
 Set your OpenAI API key in `api_chat.py` and `app/realtime.py` if you want sentence generation and speech synthesis.
 
+
 ---
 
 ## Data Collection
@@ -53,7 +56,9 @@ Each sign is recorded as a sequence of 30 frames. The scripts save these sequenc
 
 ## Real-Time Demo
 
+
 `app/realtime.py` contains the webcam loop. `realtime_testing.py` simply calls into this module. Detected signs are combined into natural sentences using the OpenAI API and may be spoken aloud via `gTTS`.
+
 
 ---
 
