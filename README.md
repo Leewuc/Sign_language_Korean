@@ -60,4 +60,3 @@ Each sign is recorded as a sequence of 30 frames. The scripts save these sequenc
 ## Notes
 
 This project is meant as a minimal prototype for experimenting with sign language recognition. Feel free to tailor the scripts and model to your own dataset and requirements.
-
