@@ -1,6 +1,6 @@
 import numpy as np
 
-from modules import *
+from utils.modules import *
 from folder_setup import *
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
@@ -49,3 +49,4 @@ plt.show()
 '''
 # print(acc)
 # print(classes)
+

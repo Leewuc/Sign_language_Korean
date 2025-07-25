@@ -1,4 +1,4 @@
-from modules import *
+from utils.modules import *
 from Data_Preprocessing import X_train,y_train,X_test,y_test
 from sklearn.metrics import accuracy_score
 from sklearn.ensemble import GradientBoostingClassifier
@@ -17,3 +17,4 @@ model.fit(X_train, y_train, epochs=1500)
 
 model.save('lstm_model_fin1500.h5')
 #print(model.summary())
+
