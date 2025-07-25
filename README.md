@@ -21,9 +21,13 @@ Welcome to a lightweight prototype for recognizing Korean sign language. This re
 - **`action_features_extraction.py`** – captures webcam frames, extracts landmarks and stores them as NumPy arrays
 - **`Data_Preprocessing.py`** – loads the saved sequences and splits them for training/testing
 - **`LSTM_Model.py`** – defines and trains the LSTM network
-- **`realtime_testing.py`** – performs real-time recognition, uses OpenAI API to form sentences, and optionally speaks them
+
+- **`app/`** – contains the real-time demo code
+  - **`realtime.py`** – main loop for webcam inference
+- **`utils/`** – shared helper modules for MediaPipe processing
+- **`realtime_testing.py`** – thin wrapper calling `app.realtime.run`
 - **`api_chat.py`** – helper functions for OpenAI calls and text-to-speech
-- **Other utilities** – drawing and detection helpers using MediaPipe
+
 
 A small pre-trained model `lstm_model_fin3.h5` is provided for quick experimentation.
 
@@ -35,9 +39,10 @@ A small pre-trained model `lstm_model_fin3.h5` is provided for quick experimenta
 2. Run `folder_setup.py` to create the `Sign_data_finfin` directory
 3. Capture data using `action_features_extraction.py`
 4. Process the data with `Data_Preprocessing.py` and train with `LSTM_Model.py`
-5. Test live recognition via `realtime_testing.py`
+5. Test live recognition via `realtime_testing.py` (or run `python app/realtime.py`)
 
-Set your OpenAI API key in `api_chat.py` and `realtime_testing.py` if you want sentence generation and speech synthesis.
+Set your OpenAI API key in `api_chat.py` and `app/realtime.py` if you want sentence generation and speech synthesis.
+
 
 ---
 
@@ -51,7 +56,9 @@ Each sign is recorded as a sequence of 30 frames. The scripts save these sequenc
 
 ## Real-Time Demo
 
-`realtime_testing.py` loads the trained model and listens to your webcam. Detected signs are combined into natural sentences using the OpenAI API and may be spoken aloud via `gTTS`.
+
+`app/realtime.py` contains the webcam loop. `realtime_testing.py` simply calls into this module. Detected signs are combined into natural sentences using the OpenAI API and may be spoken aloud via `gTTS`.
+
 
 ---
 
